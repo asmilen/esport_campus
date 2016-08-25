@@ -25,7 +25,7 @@ class CreateTableAccounts extends Migration
             $table->dateTime('date_of_birth');
             $table->string('address');
 
-            $table->integer('university_id')->unsigned();
+            $table->integer('university_id')->unsigned()->nullable();
             $table->foreign('university_id')
                 ->references('id')
                 ->on('university')

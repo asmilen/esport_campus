@@ -13,7 +13,14 @@
 
 Route::group(['middlewareGroups' => 'web'], function () {
 
+	#Frontend Route.
+
+    Route::get('dang-nhap', 'Frontend\AuthController@redirectToLogin');   
+    Route::get('oauth/callback', 'Frontend\AuthController@callback');   
+    Route::get('thoat', 'Frontend\AuthController@redirectToLogout');
+    Route::get('/','Frontend\MainController@index');
+    Route::get('/tham-gia','Frontend\MainController@test');
+
     #Admin Routes.
     Route::get('admin', 'Backend\MainController@index');
-    Route::get('/','Backend\MainController@index');
 });
