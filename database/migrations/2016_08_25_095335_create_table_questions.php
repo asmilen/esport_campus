@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableMultipleChoiceQuestion extends Migration
+class CreateTableQuestions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateTableMultipleChoiceQuestion extends Migration
      */
     public function up()
     {
-        Schema::create('multiple_choice_question', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('question');
-            $table->string('answer_a');
-            $table->string('answer_b');
-            $table->string('answer_c');
-            $table->string('answer_d');
-            $table->string('answer_e');
+            $table->boolean('type');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateTableMultipleChoiceQuestion extends Migration
     public function down()
     {
         //
-        Schema::drop('multiple_choice_question');
+        Schema::drop('questions');
     }
 }
