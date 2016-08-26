@@ -12,7 +12,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('backend.authenticate');
+        $this->middleware('backend.authenticate');
         //$this->middleware('backend.permission');
     }
 
