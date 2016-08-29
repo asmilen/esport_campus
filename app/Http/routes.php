@@ -22,6 +22,18 @@ Route::group(['middlewareGroups' => 'web'], function () {
     Route::get('/tham-gia','Frontend\MainController@test');
     Route::post('tai-khoan', 'Frontend\MainController@updateInfoAccount');
 
+    Route::get('quan-li/them-truong', 'Backend\UploadFileController@addUniversity');
+    Route::post('quan-li/them-truong', 'Backend\UploadFileController@postAddFileUniversity');
+
+    Route::get('quan-li/them-cau-hoi', 'Backend\UploadFileController@addQuestion');
+    Route::post('quan-li/them-cau-hoi', 'Backend\UploadFileController@postAddFileQuestion');
+
+    Route::get('quan-li/them-dap-an', 'Backend\UploadFileController@addAnswer');
+    Route::post('quan-li/them-dap-an', 'Backend\UploadFileController@postAddFileAnswer');
+
     #Admin Routes.
-    Route::get('admin', 'Backend\MainController@index');
+    Route::get('/quan-li', 'Backend\MainController@index');
+    Route::get('oauth/google/callback', 'Backend\AuthController@handleGoogleCallback');
+    Route::get('/quan-li/login', 'Backend\AuthController@redirectToGoogle');
+    Route::get('/quan-li/logout', 'Backend\AuthController@logout');
 });
