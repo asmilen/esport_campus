@@ -20,6 +20,7 @@ Route::group(['middlewareGroups' => 'web'], function () {
     Route::get('thoat', 'Frontend\AuthController@redirectToLogout');
     Route::get('/','Frontend\MainController@index');
     Route::get('/tham-gia','Frontend\MainController@test');
+    Route::post('tai-khoan', 'Frontend\MainController@updateInfoAccount');
 
     #Admin Routes.
     Route::get('admin', 'Backend\MainController@index');

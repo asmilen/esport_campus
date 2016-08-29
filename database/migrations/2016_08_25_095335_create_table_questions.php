@@ -17,6 +17,8 @@ class CreateTableQuestions extends Migration
             $table->increments('id');
             $table->string('question');
             $table->boolean('type');
+            $table->integer('level');//Độ khó
+            $table->integer('category');
             $table->timestamps();
         });
     }

@@ -19,17 +19,6 @@ class CreateTableAccounts extends Migration
             $table->string('username')->unique();
             $table->string('email');
             $table->string('client_ip');
-            $table->string('full_name');
-            $table->string('phone_number');
-            $table->string('identity_card');
-            $table->dateTime('date_of_birth');
-            $table->string('address');
-
-            $table->integer('university_id')->unsigned()->nullable();
-            $table->foreign('university_id')
-                ->references('id')
-                ->on('university')
-                ->onDelete('cascade');
 
             $table->timestamps();
         });
