@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Http\Requests\AccountRequest;
 use App\Account;
+use App\Exam;
+use App\Garena\ExamValidator;
 
 class MainController extends Controller
 {
@@ -20,33 +22,41 @@ class MainController extends Controller
 
     public function index()
     {
+        //ExamValidator::createExam(1);
+        dd(\Cache::get('start_exam_1'));
     	return view('frontend.index');
     }
 
     public function test()
     {
-    	$account = Auth::guard('frontend')->user();
-    	if (empty($account->university_id)) return view('frontend.account',compact('account'));
-
-    	return $account;
+    	return view('frontend.account');
     }
 
     public function updateInfoAccount(AccountRequest $request)
     {
         $user = Auth::guard('frontend')->user();
-        $account = Account::find($user->id);
-        
-        $data = $request->all();
+        try
+        {
+            $data = $request->all();
 
-        $account->full_name = $data['full_name'];
-        $account->phone_number = $data['phone_number'];
-        $account->identity_card = $data['identity_card'];
-        $account->university_id = $data['university_id'];
+            $exam = Exam::create([ 
+                'account_id'    => $user->id,
+                'full_name'     => $data['full_name'],
+                'phone_number'  => $data['phone_number'],
+                'identity_card' => $data['identity_card'],
+                'university_id' => $data['university_id']]);
 
-        
-        $account->save();
+            ExamValidator::createExam($exam->id);
 
-        \Session::flash('success', 'Cập nhật thông tin tài khoản thành công');
-        return redirect('tham-gia');
+            \Session::flash('success', 'Cập nhật thông tin tài khoản thành công');
+        }
+        catch(\Exception $e)
+        {
+            \Log::error($e);
+            \Session::flash('danger', 'Thất bại. Vui lòng thử lại');
+            return redirect('tham-gia');
+        }
+
+        return $exam;
     }
 }

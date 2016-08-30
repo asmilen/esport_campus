@@ -26,7 +26,7 @@ class AccountRequest extends Request
         return [
             'full_name' =>'required',
             'phone_number' => 'required|numeric',
-            'identity_card' => 'required|numeric',
+            'identity_card' => 'required|numeric|unique:exams,identity_card',
             'university_id' => 'required',
             'email' => 'required|email',
             'g-recaptcha-response' => 'required|captcha'
@@ -41,6 +41,7 @@ class AccountRequest extends Request
             'phone_number.numeric'  => 'Số điện thoại không hợp lệ',
             'identity_card.required'  => 'Vui lòng điền số chứng minh nhân dân',
             'identity_card.numeric'  => 'Số chứng minh nhân dân không hợp lệ',
+            'identity_card.unique'  => 'Số chứng minh nhân dân này đã được sử dụng',
             'university_id.required' => 'Vui lòng chọn trường đại học của bạn',
             'email.required'  => 'Vui lòng điền email',
             'email.email'  => 'Email không hợp lệ',
