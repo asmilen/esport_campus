@@ -23,9 +23,9 @@
 
 <div id="wrapper">
     @include('flash::message')
-    @include('admin.nav')
+    @include('admin.nav2')
 
-    <div id="page-wrapper">
+    <div id="page-wrapper1">
         @yield('content')
     </div>
 

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "abf43067a7f660ec753716f59f52fe74",
-    "content-hash": "664b713584306681d0d858ac2c52779d",
+    "hash": "e4313f4d5012069827334c9c3d635645",
+    "content-hash": "9b38dcaa2c050cc9beb8991781ac9af3",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -744,16 +744,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.44",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546"
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f24b7acfb494437ef00bdd062bed61eb21535546",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2a79f920d5584ec6df7cf996d922a742d11095d1",
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1",
                 "shasum": ""
             },
             "require": {
@@ -870,7 +870,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-23 13:03:29"
+            "time": "2016-08-26 11:44:52"
         },
         {
             "name": "laravel/socialite",
@@ -1393,6 +1393,38 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
+        },
+        {
+            "name": "phpexcel/phpexcel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ddeboer/phpexcel.git",
+                "reference": "656336f53bcd0d11abba40db6c9f8553d320434c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ddeboer/phpexcel/zipball/656336f53bcd0d11abba40db6c9f8553d320434c",
+                "reference": "656336f53bcd0d11abba40db6c9f8553d320434c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU"
+            ],
+            "description": "DEPRECATED! Use phpoffice/phpexcel instead.",
+            "homepage": "http://phpexcel.codeplex.com",
+            "abandoned": "phpoffice/phpexcel",
+            "time": "2014-02-06 05:54:09"
         },
         {
             "name": "psr/http-message",
@@ -3202,16 +3234,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.5.3",
+            "version": "5.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "08745ede58cb02b4043adadc09a01c09e698e3f7"
+                "reference": "3e6e88e56c912133de6e99b87728cca7ed70c5f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/08745ede58cb02b4043adadc09a01c09e698e3f7",
-                "reference": "08745ede58cb02b4043adadc09a01c09e698e3f7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3e6e88e56c912133de6e99b87728cca7ed70c5f5",
+                "reference": "3e6e88e56c912133de6e99b87728cca7ed70c5f5",
                 "shasum": ""
             },
             "require": {
@@ -3276,20 +3308,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-25 04:45:28"
+            "time": "2016-08-26 07:11:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.2.5",
+            "version": "3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "8f444748e174e49d5bd2bd7a9bebbf44edbb55fb"
+                "reference": "46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/8f444748e174e49d5bd2bd7a9bebbf44edbb55fb",
-                "reference": "8f444748e174e49d5bd2bd7a9bebbf44edbb55fb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49",
+                "reference": "46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49",
                 "shasum": ""
             },
             "require": {
@@ -3335,7 +3367,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-08-24 16:58:26"
+            "time": "2016-08-26 05:51:59"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -4061,7 +4093,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "phpexcel/phpexcel": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -33,11 +33,11 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectTo = '/quan-li';
     
     protected $guard = 'backend';
 
-    protected $redirectAfterLogout = '/admin';
+    protected $redirectAfterLogout = '/quan-li';
 
     /**
      * Create a new authentication controller instance.
@@ -88,16 +88,16 @@ class AuthController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            $authUser = Account::where('email', $user->email)->first();
+            $authUser = User::where('email', $user->email)->first();
             if ($authUser) {
                 Auth::guard($this->guard)->login($authUser, true);
-                return redirect('admin');
+                return redirect('quan-li');
             } else {
                 return redirect('/');
             }
         } catch (Exception $e) {
             //dd($e->getMessage());
-            return redirect('admin/login');
+            return redirect('quan-li/login');
         }
 
     }
