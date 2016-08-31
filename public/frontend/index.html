@@ -1,13 +1,51 @@
-@extends('frontend')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="nav navbar-nav">
+                <h1><a href="index.html">
+                    <img src="images/logo.png" alt="">
+                </a></h1>
+            </div>
+            <div class="navbar-right">
+                <a href="" class="btn btn-default" data-toggle="modal" data-target="#frm-login">Đăng nhập</a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="img-bnr">
+        <img src="images/img-intro.jpg" alt="">
+    </div>
+    <div class="nav-sub">
+        <div class="container">
+            <div class="row">
+                <ul class="clearfix">
+                    <li class="active"><a href="index.html">Thông tin</a></li>
+                    <li><a href="vong1-buoc1.html">vòng 1: kiến thức</a></li>
+                    <li><a href="vong2.html">vòng 2: Hoạt động nhóm </a></li>
+                    <li><a href="vong3.html">Vòng 3: Phỏng vấn</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
                     <div class="news">
                         <div class="img-holder">
-                            <a href=""><img src="{{url('frontend/images/img-news.jpg')}}" alt=""></a>
+                            <a href=""><img src="images/img-news.jpg" alt=""></a>
                         </div>
                         <div class="news-items">
                             <h3>
@@ -21,7 +59,7 @@
                     </div>
                     <div class="news">
                         <div class="img-holder">
-                            <a href=""><img src="{{url('frontend/images/img-news.jpg')}}" alt=""></a>
+                            <a href=""><img src="images/img-news.jpg" alt=""></a>
                         </div>
                         <div class="news-items">
                             <h3>
@@ -35,7 +73,7 @@
                     </div>
                     <div class="news">
                         <div class="img-holder">
-                            <a href=""><img src="{{url('frontend/images/img-news.jpg')}}" alt=""></a>
+                            <a href=""><img src="images/img-news.jpg" alt=""></a>
                         </div>
                         <div class="news-items">
                             <h3>
@@ -49,7 +87,7 @@
                     </div>
                     <div class="news">
                         <div class="img-holder">
-                            <a href=""><img src="{{url('frontend/images/img-news.jpg')}}" alt=""></a>
+                            <a href=""><img src="images/img-news.jpg" alt=""></a>
                         </div>
                         <div class="news-items">
                             <h3>
@@ -63,7 +101,7 @@
                     </div>
                     <div class="news">
                         <div class="img-holder">
-                            <a href=""><img src="{{url('frontend/images/img-news.jpg')}}" alt=""></a>
+                            <a href=""><img src="images/img-news.jpg" alt=""></a>
                         </div>
                         <div class="news-items">
                             <h3>
@@ -77,7 +115,7 @@
                     </div>
                     <div class="news">
                         <div class="img-holder">
-                            <a href=""><img src="{{url('frontend/images/img-news.jpg')}}" alt=""></a>
+                            <a href=""><img src="images/img-news.jpg" alt=""></a>
                         </div>
                         <div class="news-items">
                             <h3>
@@ -91,7 +129,7 @@
                     </div>
                     <div class="news">
                         <div class="img-holder">
-                            <a href=""><img src="{{url('frontend/images/img-news.jpg')}}" alt=""></a>
+                            <a href=""><img src="images/img-news.jpg" alt=""></a>
                         </div>
                         <div class="news-items">
                             <h3>
@@ -139,11 +177,46 @@
                     </div>
                     <div class="block">
                         <a href="">
-                            <img src="{{url('frontend/images/followus.jpg')}}" alt="">
+                            <img src="images/followus.jpg" alt="">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+    <div class="footer">
+        <div class="container">
+            <p>Esports for Student Campus (ESC) là một mạng lưới các câu lạc bộ dành cho các sinh viên đam mê với thể thao điện tử tại Việt Nam.</p>
+        </div>
+    </div>
+    <!-- Login -->
+    <div class="modal fade" id="frm-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"></span></button>
+                    <h4 class="modal-title" id="myModalLabel">đăng nhập bằng tài khoản garena</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="login-form">
+                        <input type="text" placeholder="Tài khoản" />
+                        <input type="password" placeholder="Mật khẩu" />
+                        <button>ĐĂNg Nhập</button>
+                        <ul class="message">
+                            <li>
+                                <a href="">Quên mật khẩu?</a>
+                            </li>
+                            <li>
+                                Chưa có tài khoản? <a href="#">Đăng ký.</a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

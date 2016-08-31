@@ -29,7 +29,7 @@ class AccountRequest extends Request
             'identity_card' => 'required|numeric|unique:exams,identity_card',
             'university_id' => 'required',
             'email' => 'required|email',
-            'g-recaptcha-response' => 'required|captcha'
+            //'g-recaptcha-response' => 'required|captcha'
         ];
     }
 

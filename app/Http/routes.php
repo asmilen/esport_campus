@@ -19,7 +19,11 @@ Route::group(['middlewareGroups' => 'web'], function () {
     Route::get('oauth/callback', 'Frontend\AuthController@callback');   
     Route::get('thoat', 'Frontend\AuthController@redirectToLogout');
     Route::get('/','Frontend\MainController@index');
-    Route::get('/tham-gia','Frontend\MainController@test');
+    Route::get('/vong-1/buoc-1','Frontend\MainController@round1');
+    Route::post('/vong-1/buoc-2/{id}','Frontend\MainController@test');
+    Route::get('/vong-2','Frontend\MainController@round2');
+    Route::get('/vong-2','Frontend\MainController@round2');
+    Route::get('/vong-3','Frontend\MainController@round3');
     Route::post('tai-khoan', 'Frontend\MainController@updateInfoAccount');
 
     #Admin Routes.

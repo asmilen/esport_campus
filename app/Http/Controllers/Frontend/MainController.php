@@ -17,19 +17,40 @@ class MainController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('frontend.authenticate', ['except' => ['index']]);
+        //$this->middleware('frontend.authenticate', ['except' => ['index']]);
     }
 
     public function index()
     {
-        //ExamValidator::createExam(1);
-        dd(\Cache::get('start_exam_1'));
-    	return view('frontend.index');
+        /*ExamValidator::createExam(1);
+        dd(\Cache::get('exam_1'));*/
+        $page = 'index';
+    	return view('frontend.index',compact('page'));
     }
 
-    public function test()
+    public function round1()
     {
-    	return view('frontend.account');
+        $page = 'vong-1';
+    	return view('frontend.account',compact('page'));
+    }
+
+    public function test($exam_id)
+    {
+        dd(\Cache::get('exam_'.$exam_id));
+        $page = 'vong-1';
+        return view('frontend.account',compact('page'));
+    }
+
+    public function round2()
+    {
+        $page = 'vong-2';
+        return view('frontend.round2',compact('page'));
+    }
+
+    public function round3()
+    {
+        $page = 'vong-3';
+        return view('frontend.round3',compact('page'));
     }
 
     public function updateInfoAccount(AccountRequest $request)
@@ -54,9 +75,9 @@ class MainController extends Controller
         {
             \Log::error($e);
             \Session::flash('danger', 'Thất bại. Vui lòng thử lại');
-            return redirect('tham-gia');
+            return redirect('vong-1/buoc-1');
         }
 
-        return $exam;
+        return redirect('vong-1/buoc-2/'.$exam->id);
     }
 }

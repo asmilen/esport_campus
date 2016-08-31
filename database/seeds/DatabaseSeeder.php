@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\University;
 use App\Question;
+use App\Answer;
 use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
@@ -51,11 +52,12 @@ class DatabaseSeeder extends Seeder
 
 
         Question::truncate();
+        Answer::truncate();
         for ($i=1; $i < 200; $i++) { 
             DB::table('questions')->insert([
                 'question' => md5(random_int(1, 1000)),
                 'type'     => 0,
-                'level'    => random_int(1,2),
+                'level'    => random_int(0,1),
                 'category' => random_int(1,4)
                 ]);
             for ($j=0; $j < 4; $j++) { 
@@ -71,8 +73,8 @@ class DatabaseSeeder extends Seeder
             DB::table('questions')->insert([
                 'question' => md5(random_int(1, 1000)),
                 'type'     => 1,
-                'level'    => random_int(1,2),
-                'category' => random_int(1,2)
+                'level'    => random_int(0,1),
+                'category' => random_int(1,4)
                 ]);
         }
 
