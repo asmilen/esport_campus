@@ -11,13 +11,15 @@ use App\Http\Requests\AccountRequest;
 use App\Account;
 use App\Exam;
 use App\Garena\ExamValidator;
+use Cache;
+use Carbon\Carbon;
 
 class MainController extends Controller
 {
     //
     public function __construct()
     {
-        //$this->middleware('frontend.authenticate', ['except' => ['index']]);
+        $this->middleware('frontend.authenticate', ['except' => ['index','round2','round3']]);
     }
 
     public function index()
@@ -31,14 +33,38 @@ class MainController extends Controller
     public function round1()
     {
         $page = 'vong-1';
+        $user = Auth::guard('frontend')->user();
+        $cache_key = 'user_exam_'.$user->id;
+        if (Cache::has($cache_key)) return redirect('vong-1/buoc-2');
     	return view('frontend.account',compact('page'));
     }
 
-    public function test($exam_id)
+    public function test(Request $request)
     {
-        dd(\Cache::get('exam_'.$exam_id));
         $page = 'vong-1';
-        return view('frontend.account',compact('page'));
+
+        $user = Auth::guard('frontend')->user();
+        $cache_key = 'user_exam_'.$user->id;
+        if (!Cache::has($cache_key)) return redirect('vong-1/buoc-1');
+
+        $exam_id = Cache::get($cache_key);
+        $info = Cache::get('exam_'.$exam_id);
+        // Neu het thoi gian lam bai
+        if (Carbon::now()->lt($info['end_time']))
+            $remain_time = Carbon::now()->diffInSeconds($info['end_time']);
+        else
+            $remain_time = 0;
+        
+        $current = $info['current_question'];
+        if ($request->has('answer')) {
+            $answer = $request->input('answer');
+            $info['question'][$current]->user_answer = $answer;
+            $info['current_question'] = ++$current;
+            Cache::put('exam_'.$exam_id,$info,200);
+        }
+
+        $question = $info['question'][$current];
+        return view('frontend.step_2',compact('page','question','current','remain_time'));
     }
 
     public function round2()
@@ -78,6 +104,6 @@ class MainController extends Controller
             return redirect('vong-1/buoc-1');
         }
 
-        return redirect('vong-1/buoc-2/'.$exam->id);
+        return redirect('vong-1/buoc-2/');
     }
 }

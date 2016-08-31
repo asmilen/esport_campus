@@ -11,4 +11,6 @@ return [
     'QUESTION_TYPE_ESSAY' => 1,
 
     'CATEGORY_NUMBER' => 4,
+
+    'EXAM_TIME' => 10, // minutes
 ];

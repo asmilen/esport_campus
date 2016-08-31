@@ -19,7 +19,11 @@
                 </a></h1>
             </div>
             <div class="navbar-right">
-                <a href="" class="btn btn-default" data-toggle="modal" data-target="#frm-login">Đăng nhập</a>
+                @if(Auth::guard('frontend')->check())
+                    <span>Xin chào,{{Auth::guard('frontend')->user()->username}} </span><a href="{{url('thoat')}}">ĐĂNG XUẤT</a>
+                @else
+                    <a href="{{url('/dang-nhap')}}" class="btn btn-default" >Đăng nhập</a>
+                @endif
             </div>
         </div>
         <!-- /.container -->
@@ -48,6 +52,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    @yield('footer_script')
 </body>
 
 </html>

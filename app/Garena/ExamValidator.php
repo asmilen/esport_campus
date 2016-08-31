@@ -5,6 +5,7 @@ namespace App\Garena;
 use Exception;
 use DB;
 use Carbon\Carbon;
+use Auth;
 
 class ExamValidator
 {
@@ -54,7 +55,12 @@ class ExamValidator
                             ->first();
         $all_question[] = $questionessay;
 
-        \Cache::put('start_exam_'.$exam_id,Carbon::now(),1);
-        \Cache::put('exam_'.$exam_id,$all_question,3);
+        $info = array();
+        $info['question'] = $all_question;
+        $info['end_time'] = Carbon::now()->addMinutes(config('constants.EXAM_TIME'));
+        $info['current_question'] = 0;
+        $user = Auth::guard('frontend')->user();
+        \Cache::put('user_exam_'.$user->id,$exam_id,1000);
+        \Cache::put('exam_'.$exam_id,$info,2000);
     }
 }
